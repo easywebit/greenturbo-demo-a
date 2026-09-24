@@ -41,7 +41,11 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+    <!-- Art Direction: Desktop 16:9 mit Turbo rechts, Mobile/Tablet zentrierter 4:3-Ausschnitt unter dem Text -->
+    <picture class="hero-bg">
+      <source media="(max-width: 860px)" srcset="assets/img/hero-karte-900.jpg 900w, assets/img/hero-karte.jpg 1600w" sizes="100vw">
+      <img src="assets/img/hero.jpg" srcset="assets/img/hero-1280.jpg 1280w, assets/img/hero.jpg 1920w" sizes="100vw" alt="" fetchpriority="high">
+    </picture>
     <div class="container hero-content reveal">
       <p class="eyebrow">Turbolader-Instandsetzung · Uster ZH · Swiss Made</p>
       <h1>Turbolader instand setzen<br>statt ersetzen.</h1>
