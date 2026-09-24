@@ -223,9 +223,9 @@ address a:hover { color: var(--accent); }
   .hero-badges { order: 3; }
   .footer-grid { grid-template-columns: 1fr; }
   /* Mobile: Person oben, ragt 3rem über die Kartenkante hinaus, Text darunter */
-  .cta-band { padding-top: clamp(5rem, 10vw, 7rem); }
+  .cta-band { padding-top: clamp(9.5rem, 14vw, 11rem); }
   .cta-card { grid-template-columns: 1fr; gap: .5rem; padding-top: 0; }
-  .cta-person { position: static; order: -1; height: auto; justify-self: center; margin: -3rem 0 0; pointer-events: none; }
+  .cta-person { position: static; order: -1; height: auto; justify-self: center; margin: -8rem 0 0; pointer-events: none; }
   .cta-person img { height: auto; width: min(64vw, 260px); margin-inline: auto; }
 }
 @media (max-width: 700px) {
