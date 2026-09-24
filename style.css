@@ -130,11 +130,29 @@ p { margin: 0 0 1em; }
 .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
 .gallery figure:hover img { transform: scale(1.05); }
 
-/* Referenzen */
-.quote { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; flex-direction: column; }
-.quote p { font-size: 1.05rem; flex: 1; }
-.quote footer { display: flex; flex-direction: column; border-top: 1px solid var(--border); padding-top: 1rem; }
-.quote footer span { color: var(--muted); font-size: .9rem; }
+/* Google-Bewertungen (Karussell) */
+.stars { color: #fbbc04; letter-spacing: .08em; }
+.google-badge { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1rem; padding: .55rem 1rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); font-size: .95rem; color: var(--muted); transition: border-color .2s; }
+.google-badge strong { font-family: var(--font-head); font-size: 1.35rem; color: var(--text); line-height: 1; }
+.google-badge:hover { border-color: var(--accent); }
+.carousel { position: relative; }
+.carousel-track { position: relative; display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: .25rem; outline: none; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.review { flex: 0 0 calc((100% - 2.5rem) / 3); scroll-snap-align: start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; display: flex; flex-direction: column; gap: .75rem; }
+.review-head { display: flex; gap: .75rem; align-items: center; }
+.review-head strong { display: block; line-height: 1.2; }
+.review-head span { display: block; color: var(--muted); font-size: .85rem; }
+.avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: var(--accent-text); display: grid; place-items: center; font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; flex-shrink: 0; }
+.review p { color: var(--muted); margin: 0; font-size: .98rem; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.review.open p { -webkit-line-clamp: unset; display: block; }
+.review-more { align-self: flex-start; margin-top: auto; background: none; border: 0; padding: 0; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1.6rem; line-height: 1; cursor: pointer; z-index: 2; display: grid; place-items: center; transition: border-color .2s, color .2s; }
+.carousel-btn:hover { border-color: var(--accent); color: var(--accent); }
+.carousel-btn.prev { left: -22px; }
+.carousel-btn.next { right: -22px; }
+.carousel-dots { display: flex; justify-content: center; gap: .5rem; margin-top: 1.5rem; }
+.carousel-dots button { width: 8px; height: 8px; border-radius: 4px; border: 0; padding: 0; background: rgba(255,255,255,.2); cursor: pointer; transition: width .2s, background .2s; }
+.carousel-dots button[aria-current="true"] { background: var(--accent); width: 24px; }
 
 /* CTA band mit Ansprechpartner */
 .cta-band { text-align: left; padding-top: clamp(5rem, 10vw, 9rem); }
@@ -179,6 +197,7 @@ address a:hover { color: var(--accent); }
 
 /* Responsive */
 @media (max-width: 1100px) {
+  .review { flex-basis: calc((100% - 1.25rem) / 2); }
   .grid-4, .steps, .gallery { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
@@ -201,6 +220,10 @@ address a:hover { color: var(--accent); }
   .cta-card { grid-template-columns: 1fr; padding-bottom: 0; gap: 1rem; }
   .cta-person { position: static; height: auto; justify-self: center; margin-top: .5rem; }
   .cta-person img { height: auto; width: min(70%, 300px); margin-inline: auto; }
+}
+@media (max-width: 700px) {
+  .review { flex-basis: 100%; }
+  .carousel-btn { display: none; }
 }
 @media (max-width: 560px) {
   .grid-4, .steps, .gallery, .hero-badges, .stats { grid-template-columns: 1fr; }
