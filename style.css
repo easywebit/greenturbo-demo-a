@@ -136,10 +136,15 @@ p { margin: 0 0 1em; }
 .quote footer { display: flex; flex-direction: column; border-top: 1px solid var(--border); padding-top: 1rem; }
 .quote footer span { color: var(--muted); font-size: .9rem; }
 
-/* CTA band */
-.cta-band { text-align: center; }
-.cta-band .container { background: linear-gradient(135deg, rgba(47,211,92,.14), var(--surface) 60%); border: 1px solid rgba(47,211,92,.3); border-radius: calc(var(--radius) * 2); padding: clamp(3rem, 6vw, 5rem) 2rem; }
-.cta-band p { color: var(--muted); max-width: 38rem; margin-inline: auto; margin-bottom: 2rem; }
+/* CTA band mit Ansprechpartner */
+.cta-band { text-align: left; padding-top: clamp(5rem, 10vw, 9rem); }
+.cta-card { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) clamp(220px, 30%, 380px); gap: 2rem; align-items: center; background: linear-gradient(135deg, rgba(47,211,92,.14), var(--surface) 60%); border: 1px solid rgba(47,211,92,.3); border-radius: calc(var(--radius) * 2); padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3.5rem); }
+.cta-text p { color: var(--muted); max-width: 34rem; margin-bottom: 2rem; }
+.cta-text .eyebrow { margin-bottom: .75rem; }
+.cta-text .hero-actions { margin-top: 0; }
+.cta-note { font-size: .9rem; margin: 1.5rem 0 0 !important; }
+.cta-person { position: absolute; right: clamp(1rem, 4vw, 4rem); bottom: 0; margin: 0; height: 124%; pointer-events: none; }
+.cta-person img { height: 100%; width: auto; display: block; filter: drop-shadow(0 24px 40px rgba(0,0,0,.55)); }
 
 /* Kontakt */
 address { font-style: normal; color: var(--muted); line-height: 1.8; }
@@ -192,6 +197,10 @@ address a:hover { color: var(--accent); }
   .hero::after { background: linear-gradient(180deg, rgba(11,14,12,.85) 0%, rgba(11,14,12,.7) 55%, var(--bg) 100%); }
   .hero-content { padding-block: 5rem 2.5rem; }
   .footer-grid { grid-template-columns: 1fr; }
+  .cta-band { padding-top: clamp(4rem, 8vw, 7rem); }
+  .cta-card { grid-template-columns: 1fr; padding-bottom: 0; gap: 1rem; }
+  .cta-person { position: static; height: auto; justify-self: center; margin-top: .5rem; }
+  .cta-person img { height: auto; width: min(70%, 300px); margin-inline: auto; }
 }
 @media (max-width: 560px) {
   .grid-4, .steps, .gallery, .hero-badges, .stats { grid-template-columns: 1fr; }
