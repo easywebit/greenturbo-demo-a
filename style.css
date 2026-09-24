@@ -222,10 +222,11 @@ address a:hover { color: var(--accent); }
   .hero-content { order: 1; padding-block: 3.5rem 2rem; }
   .hero-badges { order: 3; }
   .footer-grid { grid-template-columns: 1fr; }
-  .cta-band { padding-top: clamp(4rem, 8vw, 7rem); }
-  .cta-card { grid-template-columns: 1fr; padding-bottom: 0; gap: 1rem; }
-  .cta-person { position: static; height: auto; justify-self: center; margin-top: .5rem; }
-  .cta-person img { height: auto; width: min(70%, 300px); margin-inline: auto; }
+  /* Mobile: Person oben, ragt 3rem über die Kartenkante hinaus, Text darunter */
+  .cta-band { padding-top: clamp(5rem, 10vw, 7rem); }
+  .cta-card { grid-template-columns: 1fr; gap: .5rem; padding-top: 0; }
+  .cta-person { position: static; order: -1; height: auto; justify-self: center; margin: -3rem 0 0; pointer-events: none; }
+  .cta-person img { height: auto; width: min(64vw, 260px); margin-inline: auto; }
 }
 @media (max-width: 700px) {
   .review { flex-basis: 100%; }
